@@ -3,7 +3,7 @@ import {
   StyleSheet,
   View
 } from 'react-native';
-import InstaClone from './src/components/instaClone'
+import InstaClone from './src/instaClone'
 
 
 export default class App extends Component {

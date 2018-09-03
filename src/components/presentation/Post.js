@@ -7,9 +7,9 @@ import {
   Dimensions,
   TouchableOpacity
 } from 'react-native'
-import config from '../config'
+import config from '../../config'
 
-class InstaClone extends Component {
+class Post extends Component {
   constructor(){
     super()
     this.state = {
@@ -27,10 +27,7 @@ class InstaClone extends Component {
   render(){
     const imageHeight = Math.floor(this.state.screenWidth * 1.1)
     return(
-      <View style={{flex:1, width:100+'%', height: 100+'%'}}>
-        <View style={styles.tempNav}>
-          <Text>Instagram</Text>
-        </View>
+      <View style={{flex: 1, width: 100 + '%'}}>
         <View style={styles.userBar}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Image
@@ -99,4 +96,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default InstaClone
+export default Post
