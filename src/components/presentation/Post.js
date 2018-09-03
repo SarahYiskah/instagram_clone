@@ -14,18 +14,31 @@ class Post extends Component {
     super()
     this.state = {
       screenWidth: Dimensions.get('window').width,
-      liked: false
+      liked: false,
+      taps: 0
     }
   }
 
   toggleLike = () => {
     this.setState({
-      liked: !this.state.liked
+      taps: ++this.state.taps
+    }, () => {
+      if(this.state.taps > 1){
+        this.setState({
+          liked: !this.state.liked
+        })
+      }
     })
+    setTimeout(this.restTaps, 500)
+  }
+
+  restTaps = () => {
+    this.setState({taps: 0})
   }
 
   render(){
     const imageHeight = Math.floor(this.state.screenWidth * 1.1)
+    const imageUrl = this.props.item % 2 === 0 ? 'https://lh3.googleusercontent.com/IdqSnM84R9mEN2b7AP9LcvN29KuOChPB3PVhTTgiXUdgudiJeSDd_VLYsxV0FN95Urk68_aogAnBomjHRTwUnYf5-RE' : 'https://lh3.googleusercontent.com/-H7kdRcyyx7iT_GtLGY40qFvdei_R95Qa8H58WuBJRP1SPted5Cm0OvUzaEdFUlb6wCxSotRel0GJ3NsvXhbJxsRCQ'
     return(
       <View style={{flex: 1, width: 100 + '%'}}>
         <View style={styles.userBar}>
@@ -42,7 +55,7 @@ class Post extends Component {
         <TouchableOpacity activeOpacity={0.9} onPress={this.toggleLike}>
           <Image
           style={{width: this.state.screenWidth, height: 400}}
-          source={{uri: `https://lh3.googleusercontent.com/IdqSnM84R9mEN2b7AP9LcvN29KuOChPB3PVhTTgiXUdgudiJeSDd_VLYsxV0FN95Urk68_aogAnBomjHRTwUnYf5-RE=s${imageHeight}-c`}}
+          source={{uri: `${imageUrl}=s${imageHeight}-c`}}
           />
         </TouchableOpacity>
         <View style={styles.iconBar}>

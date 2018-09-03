@@ -3,8 +3,8 @@ import { Post } from '../presentation'
 import { FlatList } from 'react-native'
 
 class PostFeed extends Component {
-  _renderPost = () => {
-    return <Post />
+  _renderPost = ({item}) => {
+    return <Post item={item}/>
   }
   render(){
     return <FlatList
