@@ -59,7 +59,9 @@ class Post extends Component {
           />
         </TouchableOpacity>
         <View style={styles.iconBar}>
-          <Image style={[styles.icon, {height: 40, width: 40}]} source={this.state.liked ? config.images.loveIcon : config.images.heartIcon} />
+          <TouchableOpacity activeOpacity={0.9} onPress={() => this.setState({liked: !this.state.liked})}>
+            <Image style={[styles.icon, {height: 40, width: 40}]} source={this.state.liked ? config.images.loveIcon : config.images.heartIcon} />
+          </TouchableOpacity>
           <Image style={[styles.icon, {height: 34, width: 34}]} source={config.images.bubbleIcon} />
           <Image style={[styles.icon, {height: 33, width: 33}]} source={config.images.arrowIcon} />
         </View>
