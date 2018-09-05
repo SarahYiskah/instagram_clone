@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native'
 
 class Profile extends Component {
   logout = () => {
-    this.props.navigation.navigate('login')
+    this.props.navigation.navigate('intro')
   }
 
   render(){
